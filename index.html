@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoKord - Mechanik Samochodowy | Profesjonalne Usługi Motoryzacyjne</title>
+    <meta name="description" content="AutoKord - profesjonalny warsztat samochodowy. Naprawy mechaniczne, elektryka, klimatyzacja, przeglądy. Doświadczenie i najwyższa jakość usług.">
+    
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">
+                <img src="autokord-black.svg" class="logo-icon">
+                AutoKord
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Usługi</a></li>
+                <li><a href="#about">O nas</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+            <div class="mobile-menu" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Profesjonalny <span class="highlight">Warsztat</span> Samochodowy</h1>
+                    <p>AutoKord to Twój zaufany partner w naprawach i serwisie samochodowym. Oferujemy kompleksowe usługi dla Twojego pojazdu.</p>
+                    <a href="#contact" class="cta-button">Umów wizytę</a>
+                </div>
+                <div class="hero-image">
+                    <img src="autokord-logo.svg" width="100%">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title fade-in">Nasze Usługi</h2>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">🔧</div>
+                    <h3>Naprawy Mechaniczne</h3>
+                    <p>Kompleksowe naprawy silnika, skrzyni biegów, układu hamulcowego i zawieszenia.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">⚡</div>
+                    <h3>Elektryka Samochodowa</h3>
+                    <p>Diagnostyka i naprawa systemów elektrycznych, instalacji, akumulatorów i alternatorów.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">❄️</div>
+                    <h3>Klimatyzacja</h3>
+                    <p>Serwis i naprawa systemów klimatyzacji, uzupełnianie czynnika, wymiana filtrów.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">🔍</div>
+                    <h3>Diagnostyka Komputerowa</h3>
+                    <p>Profesjonalna diagnostyka układów elektronicznych pojazdu za pomocą najnowszych urządzeń.</p>
+                </div>
+               <!----
+               <div class="service-card fade-in">
+                    <div class="service-icon">🛞</div>
+                    <h3>Wymiana Opon</h3>
+                    <p>Sezonowa wymiana opon, wyważanie kół, naprawa opon i doradztwo w doborze ogumienia.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">📋</div>
+                    <h3>Przeglądy Okresowe</h3>
+                    <p>Przeglądy rejestracyjne, wymiana oleju, filtrów oraz kompleksowa kontrola stanu technicznego.</p>
+                </div>
+                -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <h2>O AutoKord</h2>
+                    <p>AutoKord to warsztat z wieloletnim doświadczeniem w branży motoryzacyjnej. Specjalizujemy się w kompleksowym serwisie pojazdów osobowych i dostawczych.</p>
+                    <p>Nasz zespół to wykwalifikowani mechanicy z pasją do motoryzacji. Stawiamy na jakość, rzetelność i indywidualne podejście do każdego klienta.</p>
+                    <p>Wyposażeni jesteśmy w nowoczesne narzędzia diagnostyczne i używamy wyłącznie oryginalnych części zamiennych renomowanych producentów.</p>
+                </div>
+                <div class="stats fade-in">
+                    <div class="stat">
+                        <span class="stat-number">84+</span>
+                        <span class="stat-label">Lat doświadczenia</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">100000+</span>
+                        <span class="stat-label">Zadowolonych klientów</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">5000000+</span>
+                        <span class="stat-label">Wykonanych napraw</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">24 lata</span>
+                        <span class="stat-label">Gwarancja na usługi</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title fade-in">Kontakt</h2>
+            <div class="contact-content">
+                <div class="contact-info fade-in">
+                    <h3>Skontaktuj się z nami</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <strong>Telefon:</strong><br>
+                            +48 123 456 789
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <strong>Email:</strong><br>
+                            kontakt@autokord.pl
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <strong>Adres:</strong><br>
+                            ul. Przykładowa 123<br>
+                            00-000 Miasto
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🕒</div>
+                        <div>
+                            <strong>Godziny otwarcia:</strong><br>
+                            Pon-Pt: 8:00-17:00<br>
+                            Sob: 8:00-14:00
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form fade-in" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">Imię i nazwisko</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Telefon</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Wiadomość</label>
+                        <textarea id="message" name="message" placeholder="Opisz problem z pojazdem lub rodzaj potrzebnej usługi..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Wyślij wiadomość</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="map-container">
+            <p>🗺️ Tutaj będzie mapa Google Maps z lokalizacją warsztatu</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>AutoKord</h3>
+                    <p>Profesjonalny warsztat samochodowy oferujący kompleksowe usługi mechaniczne z wieloletnim doświadczeniem.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Szybki kontakt</h3>
+                    <p>📞 +48 123 456 789</p>
+                    <p>📧 kontakt@autokord.pl</p>
+                    <p>📍 ul. Przykładowa 123, 00-000 Miasto</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Godziny pracy</h3>
+                    <p>Poniedziałek - Piątek: 8:00 - 17:00</p>
+                    <p>Sobota: 8:00 - 14:00</p>
+                    <p>Niedziela: Zamknięte</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 AutoKord. Wszystkie prawa zastrzeżone.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission handler
+        function handleSubmit(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            
+            // Here you would typically send the data to your server
+            alert('Dziękujemy za wiadomość! Skontaktujemy się z Tobą w ciągu 24 godzin.');
+            event.target.reset();
+        }
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with fade-in class
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(245, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'var(--white)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
