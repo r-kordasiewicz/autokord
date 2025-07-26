@@ -150,7 +150,7 @@
                     </div>
                 -->
                 </div>
-                <form class="contact-form fade-in" action="sendmail.php" method="POST">
+                <form class="contact-form fade-in" onsubmit="handleSubmit(event)">
                     <div class="form-group">
                         <label for="name">Imię i nazwisko</label>
                         <input type="text" id="name" name="name" required>
@@ -176,7 +176,7 @@
     <!-- Map Section -->
     <section class="map-section">
         <div class="map-container">
-            <iframe class="map-container" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d160.37119809319904!2d18.956294844791497!3d49.97499932676348!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4716bae6b57b5511%3A0x29ba6abe34f52a2c!2sBroniewskiego%205%2C%2043-200%20Pszczyna!5e0!3m2!1spl!2spl!4v1752426008485!5m2!1spl!2spl" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe class="map-container" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d233.445418063019!2d18.956907429893867!3d49.97488085881649!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4716bbe92bbd9cf7%3A0x25b2c56be7643383!2sAutokord%20Krzysztof%20Kordasiewicz!5e0!3m2!1spl!2spl!4v1753545703543!5m2!1spl!2spl" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </section>
 
@@ -207,6 +207,15 @@
         </div>
     </footer>
 
+    <!-- Popup/modal potwierdzający wysłanie -->
+    <div id="confirmationModal" class="modal">
+    <div class="modal-content">
+        <span id="closeModal" class="close-button">&times;</span>
+        <h2>Dziękujemy za kontakt!</h2>
+        <p>Skontaktujemy się z Tobą w ciągu 24 godzin.</p>
+    </div>
+    </div>
+
     <script>
         // Mobile menu toggle
         function toggleMobileMenu() {
@@ -230,15 +239,53 @@
         });
 
         // Form submission handler
-        function handleSubmit(event) {
-            event.preventDefault();
-            const formData = new FormData(event.target);
-            const data = Object.fromEntries(formData);
-            
-            // Here you would typically send the data to your server
-            alert('Dziękujemy za wiadomość! Skontaktujemy się z Tobą w ciągu 24 godzin.');
-            event.target.reset();
+       function handleSubmit(event) {
+    event.preventDefault();
+    const form = event.target;
+    const formData = new FormData(form);
+
+    fetch('sendmail.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        if (data.trim() === "success") {
+            const modal = document.getElementById('confirmationModal');
+            modal.style.display = 'flex';
+
+            form.reset();
+
+            const closeBtn = document.getElementById('closeModal');
+
+            // ustaw event tylko raz, np. tak:
+            if (!closeBtn.hasAttribute('data-listener')) {
+                closeBtn.addEventListener('click', () => {
+                    modal.style.display = 'none';
+                });
+                closeBtn.setAttribute('data-listener', 'true');
+            }
+
+            // Zamknij modal po kliknięciu poza modal-content - też ustaw event jeden raz
+            if (!modal.hasAttribute('data-listener')) {
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        modal.style.display = 'none';
+                    }
+                });
+                modal.setAttribute('data-listener', 'true');
+            }
+        } else {
+            alert("Wystąpił błąd podczas wysyłania formularza. Spróbuj ponownie.");
+            console.error('Server error:', data);
         }
+    })
+    .catch(error => {
+        alert("Wystąpił błąd podczas wysyłania formularza. Spróbuj ponownie.");
+        console.error('Error:', error);
+    });
+}
+
 
         // Intersection Observer for fade-in animations
         const observerOptions = {
