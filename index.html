@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AutoKord - Mechanik Samochodowy | Profesjonalne Usługi Motoryzacyjne</title>
-    <meta name="description" content="AutoKord - profesjonalny warsztat samochodowy. Naprawy mechaniczne, elektryka, klimatyzacja, przeglądy. Doświadczenie i najwyższa jakość usług.">
+    <title>AutoKord - Mechanik Samochodowy Pszczyna | Profesjonalne Usługi Motoryzacyjne</title>
+    <meta name="description" content="AutoKord Pszczyna - profesjonalny warsztat samochodowy. Naprawy mechaniczne, elektryka, klimatyzacja, przeglądy. Doświadczenie i najwyższa jakość usług w Pszczynie i okolicach.">
+    <meta name="keywords" content="mechanik Pszczyna, warsztat samochodowy Pszczyna, naprawa samochodów Pszczyna, diagnostyka komputerowa Pszczyna, AutoKord">
     
-    <!-- Google Fonts - Inter -->
+    <!-- Google Fonts - Outfit (modern & distinctive) + Source Sans Pro -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
@@ -28,10 +29,11 @@
                 AutoKord
             </a>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Usługi</a></li>
-                <li><a href="#about">O nas</a></li>
-                <li><a href="#contact">Kontakt</a></li>
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#services" class="nav-link">Usługi</a></li>
+                <li><a href="#about" class="nav-link">O nas</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+                <li><a href="#contact" class="nav-link">Kontakt</a></li>
             </ul>
             <div class="mobile-menu" onclick="toggleMobileMenu()">
                 <span></span>
@@ -46,12 +48,20 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
+                    <div class="hero-badge">Warsztat w Pszczynie</div>
                     <h1>Profesjonalny <span class="highlight">Warsztat</span> Samochodowy</h1>
-                    <p>AutoKord to Twój zaufany partner w naprawach i serwisie samochodowym. Oferujemy kompleksowe usługi dla Twojego pojazdu.</p>
-                    <a href="#contact" class="cta-button">Umów wizytę</a>
+                    <p class="hero-description">AutoKord to Twój zaufany partner w naprawach i serwisie samochodowym w Pszczynie. Oferujemy kompleksowe usługi dla Twojego pojazdu z pasją do motoryzacji.</p>
+                    <div class="cta-group">
+                        <a href="#contact" class="cta-button primary">Umów wizytę</a>
+                        <a href="tel:+48537043997" class="cta-button secondary">
+                            <span class="phone-icon">📞</span> 537 043 997
+                        </a>
+                    </div>
                 </div>
                 <div class="hero-image">
-                    <img src="img/autokord-logo.svg" width="100%">
+                    <div class="hero-image-wrapper">
+                        <img src="img/autokord-logo.svg" width="100%" alt="AutoKord Logo">
+                    </div>
                 </div>
             </div>
         </div>
@@ -60,36 +70,47 @@
     <!-- Services Section -->
     <section id="services" class="services">
         <div class="container">
-            <h2 class="section-title fade-in">Nasze Usługi</h2>
+            <div class="section-header fade-in">
+                <span class="section-label">Co oferujemy</span>
+                <h2 class="section-title">Nasze Usługi</h2>
+                <p class="section-description">Kompleksowa obsługa Twojego samochodu w jednym miejscu</p>
+            </div>
             <div class="services-grid">
-                <div class="service-card fade-in">
-                    
+                <div class="service-card fade-in" style="animation-delay: 0.1s">
+                    <div class="service-icon">🔧</div>
                     <h3>Mechanika ogólna</h3>
                     <p>Wykonujemy wszelkie naprawy mechaniczne, od wymiany rozrządów po serwis zawieszenia i hamulców.</p>
+                    <a href="blog.html" class="service-link">Czytaj więcej →</a>
                 </div>
-                <div class="service-card fade-in">
-                    
-                    <h3>Wygłuszanie samochodów</h3>
-                    <p>Redukujemy hałas i drgania w aucie, poprawiając komfort jazdy dzięki profesjonalnemu wygłuszeniu wnętrza.</p>
+                <div class="service-card fade-in" style="animation-delay: 0.2s">
+                    <div class="service-icon">🔇</div>
+                    <h3>Wyciszanie samochodów</h3>
+                    <p>Redukujemy hałas i drgania w aucie, poprawiając komfort jazdy dzięki profesjonalnemu wyciszeniu wnętrza.</p>
+                    <a href="blog.html" class="service-link">Czytaj więcej →</a>
                 </div>
-                <div class="service-card fade-in">
-                    
+                <div class="service-card fade-in" style="animation-delay: 0.3s">
+                    <div class="service-icon">🔊</div>
                     <h3>Montaż car-audio</h3>
                     <p>Montujemy i konfigurujemy systemy car-audio, zapewniając doskonałą jakość dźwięku w Twoim samochodzie.</p>
+                    <a href="blog.html" class="service-link">Czytaj więcej →</a>
                 </div>
-                <div class="service-card fade-in">
+                <div class="service-card fade-in" style="animation-delay: 0.4s">
+                    <div class="service-icon">💻</div>
                     <h3>Diagnostyka komputerowa</h3>
                     <p>Szybko wykrywamy usterki w elektronice samochodu dzięki nowoczesnym urządzeniom diagnostycznym.</p>
+                    <a href="blog.html" class="service-link">Czytaj więcej →</a>
                 </div>
-               <div class="service-card fade-in">
-                    
+               <div class="service-card fade-in" style="animation-delay: 0.5s">
+                    <div class="service-icon">🛡️</div>
                     <h3>Konserwacja podwozia</h3>
                     <p>Zabezpieczamy podwozie przed korozją, wydłużając żywotność i bezpieczeństwo Twojego auta.</p>
+                    <a href="blog.html" class="service-link">Czytaj więcej →</a>
                 </div>
-                <div class="service-card fade-in">
-                    
+                <div class="service-card fade-in" style="animation-delay: 0.6s">
+                    <div class="service-icon">⚙️</div>
                     <h3>Układy wydechowe i spawanie</h3>
-                    <p>Naprawiamy i montujemy układy wydechowe oraz wykonujemy usługi spawalnicze elementów metalowych w samochodzie.</p>
+                    <p>Naprawiamy i montujemy układy wydechowe oraz wykonujemy usługi spawalnicze elementów metalowych.</p>
+                    <a href="blog.html" class="service-link">Czytaj więcej →</a>
                 </div>
             </div>
         </div>
@@ -99,12 +120,33 @@
     <section id="about" class="about">
         <div class="container">
             <div class="about-content">
-                <div class="about-text fade-in">
-                    <h2>O AutoKord</h2>
-                    <p>AutoKord to nowoczesny warsztat samochodowy stworzony z pasji do motoryzacji. Oferujemy kompleksowe usługi mechaniczne oraz diagnostykę komputerową, dbając o sprawność i bezpieczeństwo Twojego auta. Naszą mocną stroną jest indywidualne podejście do każdego klienta oraz zaangażowanie w każde zlecenie.</p>
+                <div class="about-image fade-in">
+                   <img id="mechanic" src="img/mechanic.webp" alt="Mechanik AutoKord Pszczyna">
+                   <div class="about-badge">Warsztat w Pszczynie od 2010</div>
                 </div>
-                <div class="stats fade-in">
-                   <img id="mechanic" src="img/mechanic.webp">
+                <div class="about-text fade-in">
+                    <span class="section-label">Kim jesteśmy</span>
+                    <h2>O AutoKord</h2>
+                    <p>AutoKord to nowoczesny warsztat samochodowy w <strong>Pszczynie</strong>, stworzony z pasji do motoryzacji. Oferujemy kompleksowe usługi mechaniczne oraz diagnostykę komputerową, dbając o sprawność i bezpieczeństwo Twojego auta.</p>
+                    <p>Naszą mocną stroną jest indywidualne podejście do każdego klienta oraz zaangażowanie w każde zlecenie. Obsługujemy klientów z Pszczyny i okolic - Bierunia, Tych, Mikołowa i całego powiatu pszczyńskiego.</p>
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Doświadczony zespół</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Nowoczesny sprzęt</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Uczciwe ceny</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Szybka realizacja</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -113,22 +155,25 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title fade-in">Kontakt</h2>
+            <div class="section-header fade-in">
+                <span class="section-label">Skontaktuj się</span>
+                <h2 class="section-title">Kontakt</h2>
+            </div>
             <div class="contact-content">
                 <div class="contact-info fade-in">
-                    <h3>Skontaktuj się z nami</h3>
+                    <h3>AutoKord Pszczyna</h3>
                     <div class="contact-item">
                         <div class="contact-icon">📞</div>
                         <div>
                             <strong>Telefon:</strong><br>
-                            +48 537 043 997
+                            <a href="tel:+48537043997">+48 537 043 997</a>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">📧</div>
                         <div>
                             <strong>Email:</strong><br>
-                            kontakt@autokord.pl
+                            <a href="mailto:kontakt@autokord.pl">kontakt@autokord.pl</a>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -139,16 +184,6 @@
                             43-200 Pszczyna
                         </div>
                     </div>
-                    <!-- 
-                    <div class="contact-item">
-                        <div class="contact-icon">🕒</div>
-                        <div>
-                            <strong>Godziny otwarcia:</strong><br>
-                            Pon-Pt: 8:00-17:00<br>
-                            Sob: 8:00-14:00
-                        </div>
-                    </div>
-                -->
                 </div>
                 <form class="contact-form fade-in" onsubmit="handleSubmit(event)">
                     <div class="form-group">
@@ -186,23 +221,24 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>AutoKord</h3>
-                    <p>Nowoczesny warsztat samochodowy z pasją do motoryzacji. Oferujemy kompleksowe usługi mechaniczne i indywidualne podejście do każdego klienta.</p>
+                    <p>Nowoczesny warsztat samochodowy w Pszczynie z pasją do motoryzacji. Oferujemy kompleksowe usługi mechaniczne i indywidualne podejście do każdego klienta.</p>
                 </div>
                 <div class="footer-section">
                     <h3>Kontakt</h3>
-                    <p>📞 +48 537 043 997</p>
-                    <p>📧 kontakt@autokord.pl</p>
+                    <p>📞 <a href="tel:+48537043997">+48 537 043 997</a></p>
+                    <p>📧 <a href="mailto:kontakt@autokord.pl">kontakt@autokord.pl</a></p>
                     <p>📍 ul. Broniewskiego 5, 43-200 Pszczyna</p>
                 </div>
-                <!-- <div class="footer-section">
-                    <h3>Godziny pracy</h3>
-                    <p>Poniedziałek - Piątek: 8:00 - 17:00</p>
-                    <p>Sobota: 8:00 - 14:00</p>
-                    <p>Niedziela: Zamknięte</p>
-                </div> -->
+                <div class="footer-section">
+                    <h3>Nawigacja</h3>
+                    <p><a href="#home">Home</a></p>
+                    <p><a href="#services">Usługi</a></p>
+                    <p><a href="blog.html">Blog</a></p>
+                    <p><a href="#contact">Kontakt</a></p>
+                </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 AutoKord. Wszystkie prawa zastrzeżone.</p>
+                <p>&copy; 2025 AutoKord Pszczyna. Wszystkie prawa zastrzeżone.</p>
             </div>
         </div>
     </footer>
@@ -234,6 +270,30 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
+                }
+                // Close mobile menu if open
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+
+        // Active nav link on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
                 }
             });
         });
@@ -310,11 +370,11 @@
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
             if (window.scrollY > 100) {
-                header.style.background = 'rgba(245, 255, 255, 0.95)';
-                header.style.backdropFilter = 'blur(10px)';
+                header.style.background = 'rgba(245, 255, 255, 0.98)';
+                header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
             } else {
                 header.style.background = 'var(--white)';
-                header.style.backdropFilter = 'none';
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
             }
         });
     </script>

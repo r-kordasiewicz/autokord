@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog AutoKord - Porady Motoryzacyjne Pszczyna</title>
+    <meta name="description" content="Blog AutoKord Pszczyna - praktyczne porady motoryzacyjne, poradniki serwisowe i aktualności o samochodach. Warsztat samochodowy w Pszczynie.">
+    <meta name="keywords" content="blog samochodowy Pszczyna, porady motoryzacyjne, serwis samochodów Pszczyna, AutoKord blog">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="blog-style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="img/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="img/android-chrome-512x512.png">
+    <link rel="manifest" href="img/site.webmanifest">
+    <link rel="shortcut icon" href="img/favicon.ico">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="/" class="logo">
+                <img src="img/autokord-black.svg" class="logo-icon">
+                <span class="logo-text">AutoKord</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/#services" class="nav-link">Usługi</a></li>
+                <li><a href="/#about" class="nav-link">O nas</a></li>
+                <li><a href="blog.html" class="nav-link active">Blog</a></li>
+                <li><a href="/#contact" class="nav-link">Kontakt</a></li>
+            </ul>
+            <div class="mobile-menu" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Blog Hero Section -->
+    <section class="blog-hero">
+        <div class="container">
+            <div class="blog-hero-content">
+                <span class="blog-hero-label">AutoKord Blog</span>
+                <h1>Porady i Wiedza Motoryzacyjna</h1>
+                <p>Praktyczne porady dla kierowców z Pszczyny i okolic. Dowiedz się więcej o utrzymaniu swojego samochodu w idealnym stanie.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Filter Section -->
+    <section class="blog-filter">
+        <div class="container">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">Wszystkie</button>
+                <button class="filter-btn" data-filter="poradnik">Poradnik</button>
+                <button class="filter-btn" data-filter="usługi">Usługi</button>
+                <button class="filter-btn" data-filter="aktualności">Aktualności</button>
+                <button class="filter-btn" data-filter="komfort">Komfort</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Posts Grid -->
+    <section class="blog-posts">
+        <div class="container">
+            <div class="blog-grid">
+                <!-- Article 1 -->
+                <article class="blog-card" data-category="poradnik">
+                    <div class="blog-card-image">
+                        <img src="img/mechanic.webp" alt="Przygotowanie auta na zimę">
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-card-meta">
+                            <span class="blog-category">Poradnik</span>
+                            <span class="blog-date">3 lutego 2026</span>
+                        </div>
+                        <h3><a href="blog-posts/przygotowanie-auta-zima-pszczyna.html">Jak przygotować auto do zimy w Pszczynie?</a></h3>
+                        <p>Przygotowanie samochodu na zimę to kluczowy moment dla każdego kierowcy, szczególnie w regionie pszczyńskim, gdzie zimy mogą być surowe...</p>
+                        <div class="blog-card-tags">
+                            <span>zima</span>
+                            <span>opony</span>
+                            <span>przygotowanie</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="blog-card" data-category="usługi">
+                    <div class="blog-card-image">
+                        <img src="img/mechanic.webp" alt="Diagnostyka komputerowa">
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-card-meta">
+                            <span class="blog-category">Usługi</span>
+                            <span class="blog-date">2 lutego 2026</span>
+                        </div>
+                        <h3><a href="blog-posts/diagnostyka-komputerowa-pszczyna.html">Czym jest diagnostyka komputerowa?</a></h3>
+                        <p>Diagnostyka komputerowa to nieodłączny element współczesnego serwisu samochodowego. W AutoKord w Pszczynie posiadamy...</p>
+                        <div class="blog-card-tags">
+                            <span>diagnostyka</span>
+                            <span>komputerowa</span>
+                            <span>OBD</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="blog-card" data-category="komfort">
+                    <div class="blog-card-image">
+                        <img src="img/mechanic.webp" alt="Wyciszanie samochodu">
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-card-meta">
+                            <span class="blog-category">Komfort</span>
+                            <span class="blog-date">25 stycznia 2026</span>
+                        </div>
+                        <h3><a href="blog-posts/wyciszanie-auta-pszczyna.html">Dlaczego warto wyciszyć samochód?</a></h3>
+                        <p>Wyciszanie samochodu to inwestycja, która przekłada się na komfort jazdy i jakość codziennego użytkowania pojazdu...</p>
+                        <div class="blog-card-tags">
+                            <span>wyciszanie</span>
+                            <span>komfort</span>
+                            <span>hałas</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 4 -->
+                <article class="blog-card" data-category="poradnik">
+                    <div class="blog-card-image">
+                        <img src="img/mechanic.webp" alt="Konserwacja podwozia">
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-card-meta">
+                            <span class="blog-category">Poradnik</span>
+                            <span class="blog-date">23 stycznia 2026</span>
+                        </div>
+                        <h3><a href="blog-posts/konserwacja-podwozia-pszczyna.html">Konserwacja podwozia - jak chronić auto przed korozją?</a></h3>
+                        <p>Konserwacja podwozia to jedna z najważniejszych czynności konserwacyjnych, szczególnie w regionie pszczyńskim...</p>
+                        <div class="blog-card-tags">
+                            <span>konserwacja</span>
+                            <span>podwozie</span>
+                            <span>korozja</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 5 -->
+                <article class="blog-card" data-category="aktualności">
+                    <div class="blog-card-image">
+                        <img src="img/mechanic.webp" alt="Sygnały uszkodzeń">
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-card-meta">
+                            <span class="blog-category">Aktualności</span>
+                            <span class="blog-date">12 stycznia 2026</span>
+                        </div>
+                        <h3><a href="blog-posts/sygnaly-usterek-samochodu.html">Sygnały uszkodzeń samochodu - na co zwracać uwagę?</a></h3>
+                        <p>Warsztat samochodowy w Pszczynie AutoKord dzieli się wiedzą o najczęstszych objawach uszkodzeń pojazdów...</p>
+                        <div class="blog-card-tags">
+                            <span>usterki</span>
+                            <span>objawy</span>
+                            <span>naprawa</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 6 -->
+                <article class="blog-card" data-category="komfort">
+                    <div class="blog-card-image">
+                        <img src="img/mechanic.webp" alt="Car audio">
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-card-meta">
+                            <span class="blog-category">Komfort</span>
+                            <span class="blog-date">30 grudnia 2025</span>
+                        </div>
+                        <h3><a href="blog-posts/car-audio-pszczyna-montaz.html">Montaż car audio - jak poprawić dźwięk w aucie?</a></h3>
+                        <p>Montaż car audio to doskonały sposób na poprawę komfortu jazdy i jakości dźwięku w Twoim samochodzie...</p>
+                        <div class="blog-card-tags">
+                            <span>car audio</span>
+                            <span>głośniki</span>
+                            <span>dźwięk</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 7 -->
+                <article class="blog-card" data-category="poradnik">
+                    <div class="blog-card-image">
+                        <img src="img/mechanic.webp" alt="Wybór warsztatu">
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-card-meta">
+                            <span class="blog-category">Poradnik</span>
+                            <span class="blog-date">14 grudnia 2025</span>
+                        </div>
+                        <h3><a href="blog-posts/wybor-warsztatu-pszczyna.html">Jak wybrać dobry warsztat samochodowy w Pszczynie?</a></h3>
+                        <p>Wybór odpowiedniego warsztatu samochodowego to kluczowe zadanie dla każdego właściciela pojazdu...</p>
+                        <div class="blog-card-tags">
+                            <span>warsztat</span>
+                            <span>wybór</span>
+                            <span>Pszczyna</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 8 -->
+                <article class="blog-card" data-category="poradnik">
+                    <div class="blog-card-image">
+                        <img src="img/mechanic.webp" alt="Wymiana opon">
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-card-meta">
+                            <span class="blog-category">Poradnik</span>
+                            <span class="blog-date">18 listopada 2025</span>
+                        </div>
+                        <h3><a href="blog-posts/wymiana-opon-pszczyna-kiedy.html">Kiedy warto wymienić opony w Pszczynie?</a></h3>
+                        <p>Wymiana opon to jedna z najważniejszych czynności konserwacyjnych, która zapewnia bezpieczeństwo jazdy...</p>
+                        <div class="blog-card-tags">
+                            <span>opony</span>
+                            <span>wymiana</span>
+                            <span>bezpieczeństwo</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog CTA Section -->
+    <section class="blog-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Potrzebujesz pomocy?</h2>
+                <p>Skontaktuj się z nami, a nasz zespół specjalistów pomoże Ci rozwiązać każdy problem z Twoim samochodem.</p>
+                <div class="cta-buttons">
+                    <a href="/#contact" class="cta-button primary">Umów wizytę</a>
+                    <a href="tel:+48537043997" class="cta-button secondary">537 043 997</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>AutoKord</h3>
+                    <p>Nowoczesny warsztat samochodowy w Pszczynie z pasją do motoryzacji. Oferujemy kompleksowe usługi mechaniczne i indywidualne podejście do każdego klienta.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Kontakt</h3>
+                    <p>📞 <a href="tel:+48537043997">+48 537 043 997</a></p>
+                    <p>📧 <a href="mailto:kontakt@autokord.pl">kontakt@autokord.pl</a></p>
+                    <p>📍 ul. Broniewskiego 5, 43-200 Pszczyna</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Nawigacja</h3>
+                    <p><a href="/">Home</a></p>
+                    <p><a href="/#services">Usługi</a></p>
+                    <p><a href="/#about">O nas</a></p>
+                    <p><a href="blog.html">Blog</a></p>
+                    <p><a href="/#contact">Kontakt</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 AutoKord Pszczyna. Wszystkie prawa zastrzeżone.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+
+        // Blog filter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const blogCards = document.querySelectorAll('.blog-card');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+
+                    const filterValue = this.getAttribute('data-filter');
+
+                    blogCards.forEach(card => {
+                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                            card.style.display = 'block';
+                            card.style.animationDelay = '0.1s';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                // Close mobile menu if open
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+
+        // Active nav link on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(245, 255, 255, 0.98)';
+                header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+            } else {
+                header.style.background = 'var(--white)';
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
