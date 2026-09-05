@@ -143,6 +143,18 @@
             background: rgba(255, 255, 255, 0.2);
             padding: 8px 16px;
             border-radius: 20px;
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            max-width: 34rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
             font-size: 0.9rem;
             font-weight: 600;
             text-transform: uppercase;
@@ -169,6 +181,41 @@
             border-color: var(--secondary-red);
         }
 
+        .cta-button.secondary:hover {
+            background: var(--white);
+            color: var(--primary-red);
+            border-color: var(--white);
+        }
+
+        .phone-icon {
+            margin-right: 0.5rem;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .hero-image-wrapper {
+            max-width: 480px;
+            margin: 0 auto;
+            filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.18));
+        }
+
+        .hero-image-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .cta-button.primary {
+            background: var(--primary-red);
+            color: var(--white);
+            border-color: var(--primary-red);
+        }
+
+        .cta-button.primary:hover {
+            background: var(--secondary-red);
+            color: var(--white);
+            border-color: var(--secondary-red);
+        }
         .cta-button.secondary {
             background: transparent;
             color: var(--white);
@@ -346,15 +393,53 @@
         }
 
         #mechanic {
-             width: 100%;
-             max-width: 600px;
-             height: auto;
-             border-radius: 16px;
-             box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
             margin-left: auto;
             margin-right: auto;
             justify-self: center;
             align-self: center;
+        }
+
+        .about-image {
+            position: relative;
+            min-width: 0;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 600;
+            color: var(--dark-gray);
+        }
+
+        .feature-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            flex-shrink: 0;
+            background: rgba(208, 29, 32, 0.1);
+            color: var(--primary-red);
+            border-radius: 50%;
+            font-weight: 700;
         }
 
         .about-image {
@@ -375,6 +460,9 @@
             text-transform: uppercase;
             box-shadow: 0 4px 12px rgba(208, 29, 32, 0.3);
             white-space: nowrap;
+            max-width: 90%;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
 
@@ -459,6 +547,11 @@
             border-radius: 20px;
             font-size: 0.85rem;
             font-weight: 600;
+        }
+
+        .hours-status.closed {
+            background: #fdecec;
+            color: var(--secondary-red);
         }
 
         /* Contact Section */
@@ -651,6 +744,15 @@
             .about-content,
             .contact-content {
                 grid-template-columns: 1fr;
+            }
+
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-image-wrapper {
+                max-width: 100%;
+                padding: 0 1rem;
             }
 
             .stats {
