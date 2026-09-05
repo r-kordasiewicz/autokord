@@ -487,15 +487,6 @@
             display: block;
         }
 
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-
-        .hours-status.closed {
-            background: #fdecec;
-            color: var(--secondary-red);
-        }
-
         .stat-label {
             color: var(--text-gray);
             font-size: 0.9rem;
@@ -556,6 +547,11 @@
             border-radius: 20px;
             font-size: 0.85rem;
             font-weight: 600;
+        }
+
+        .hours-status.closed {
+            background: #fdecec;
+            color: var(--secondary-red);
         }
 
         /* Contact Section */
