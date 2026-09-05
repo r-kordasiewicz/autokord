@@ -393,7 +393,25 @@
         }
 
         #mechanic {
-            white-space: nowrap;
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            margin-left: auto;
+            margin-right: auto;
+            justify-self: center;
+            align-self: center;
+        }
+
+        .about-image {
+            position: relative;
+            min-width: 0;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            height: auto;
         }
 
         .about-features {
@@ -424,17 +442,6 @@
             font-weight: 700;
         }
 
-             width: 100%;
-             max-width: 600px;
-             height: auto;
-             border-radius: 16px;
-             box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-            margin-left: auto;
-            margin-right: auto;
-            justify-self: center;
-            align-self: center;
-        }
-
         .about-image {
             position: relative;
         }
@@ -453,6 +460,9 @@
             text-transform: uppercase;
             box-shadow: 0 4px 12px rgba(208, 29, 32, 0.3);
             white-space: nowrap;
+            max-width: 90%;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
 
@@ -738,6 +748,15 @@
             .about-content,
             .contact-content {
                 grid-template-columns: 1fr;
+            }
+
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-image-wrapper {
+                max-width: 100%;
+                padding: 0 1rem;
             }
 
             .stats {
