@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AutoKord - Mechanik Samochodowy Pszczyna | Profesjonalne Usługi Motoryzacyjne</title>
     <meta name="description" content="AutoKord Pszczyna - profesjonalny warsztat samochodowy. Naprawy mechaniczne, elektryka, klimatyzacja, przeglądy. Doświadczenie i najwyższa jakość usług w Pszczynie i okolicach.">
-    <meta name="keywords" content="mechanik Pszczyna, warsztat samochodowy Pszczyna, naprawa samochodów Pszczyna, diagnostyka komputerowa Pszczyna, AutoKord">
     
     <!-- Google Fonts - Outfit (modern & distinctive) + Source Sans Pro -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -176,17 +175,17 @@
                 <p class="section-description">Zapraszamy od poniedziałku do piątku oraz w weekendy - również w niedzielę.</p>
             </div>
             <div class="hours-grid">
-                <div class="hours-card fade-in">
+                <div class="hours-card fade-in" data-day="mon-fri">
                     <h3>Pon–Pt</h3>
                     <span class="hours-time">08:00 – 17:00</span>
                     <span class="hours-status">Otwarte</span>
                 </div>
-                <div class="hours-card fade-in" style="animation-delay: 0.1s">
+                <div class="hours-card fade-in" style="animation-delay: 0.1s" data-day="sat">
                     <h3>Sobota</h3>
                     <span class="hours-time">08:00 – 14:00</span>
                     <span class="hours-status">Otwarte</span>
                 </div>
-                <div class="hours-card fade-in" style="animation-delay: 0.2s">
+                <div class="hours-card fade-in" style="animation-delay: 0.2s" data-day="sun">
                     <h3>Niedziela</h3>
                     <span class="hours-time">09:00 – 14:00</span>
                     <span class="hours-status">Otwarte</span>
@@ -347,6 +346,30 @@
                 }
             });
         });
+
+        // Dynamiczny status godzin otwarcia
+        (function updateHoursStatus() {
+            const now = new Date();
+            const day = now.getDay(); // 0 = niedziela, 6 = sobota
+            const minutes = now.getHours() * 60 + now.getMinutes();
+            const ranges = {
+                'mon-fri': { start: 8 * 60, end: 17 * 60, days: [1, 2, 3, 4, 5] },
+                'sat':     { start: 8 * 60, end: 14 * 60, days: [6] },
+                'sun':     { start: 9 * 60, end: 14 * 60, days: [0] }
+            };
+            document.querySelectorAll('.hours-card[data-day]').forEach(card => {
+                const range = ranges[card.dataset.day];
+                if (!range) return;
+                const status = card.querySelector('.hours-status');
+                if (!status) return;
+                if (range.days.includes(day) && minutes >= range.start && minutes < range.end) {
+                    status.textContent = 'Otwarte teraz';
+                } else {
+                    status.textContent = 'Zamknięte';
+                    status.classList.add('closed');
+                }
+            });
+        })();
 
         // Form submission handler
        function handleSubmit(event) {
