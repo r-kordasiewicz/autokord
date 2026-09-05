@@ -1155,3 +1155,18 @@
 .blog-preview-card:hover .read-more {
     color: var(--secondary-red);
 }
+/* Polityka prywatności */
+.policy-title {
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    font-family: var(--font-heading);
+    color: var(--dark-gray);
+}
+
+.policy-date {
+    margin-top: 2.5rem;
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    font-style: italic;
+}

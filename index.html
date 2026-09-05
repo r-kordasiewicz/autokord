@@ -233,22 +233,37 @@
                         </div>
                     </div>
                 </div>
-                <form class="contact-form fade-in" onsubmit="handleSubmit(event)">
+                <form class="contact-form fade-in" id="contactForm" novalidate>
+                    <div class="form-group hp-field" aria-hidden="true">
+                        <label for="website">Nie wypełniaj tego pola</label>
+                        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                    </div>
                     <div class="form-group">
                         <label for="name">Imię i nazwisko</label>
-                        <input type="text" id="name" name="name" required>
+                        <input type="text" id="name" name="name" required minlength="2" maxlength="100" autocomplete="name">
+                        <span class="field-error" data-error-for="name"></span>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="email" name="email" required maxlength="150" autocomplete="email">
+                        <span class="field-error" data-error-for="email"></span>
                     </div>
                     <div class="form-group">
                         <label for="phone">Telefon</label>
-                        <input type="tel" id="phone" name="phone">
+                        <input type="tel" id="phone" name="phone" pattern="^[+]?[0-9\s\-()]{7,20}$" autocomplete="tel">
+                        <span class="field-error" data-error-for="phone"></span>
                     </div>
                     <div class="form-group">
                         <label for="message">Wiadomość</label>
-                        <textarea id="message" name="message" placeholder="Opisz problem z pojazdem lub rodzaj potrzebnej usługi..." required></textarea>
+                        <textarea id="message" name="message" placeholder="Opisz problem z pojazdem lub rodzaj potrzebnej usługi..." required minlength="10" maxlength="3000"></textarea>
+                        <span class="field-error" data-error-for="message"></span>
+                    </div>
+                    <div class="form-group form-consent">
+                        <label class="consent-label" for="rodo">
+                            <input type="checkbox" id="rodo" name="rodo" required>
+                            <span>Wyrażam zgodę na przetwarzanie moich danych osobowych w celu obsługi zapytania, zgodnie z <a href="polityka-prywatnosci.html" target="_blank" rel="noopener">polityką prywatności</a>. *</span>
+                        </label>
+                        <span class="field-error" data-error-for="rodo"></span>
                     </div>
                     <button type="submit" class="submit-btn">Wyślij wiadomość</button>
                 </form>
@@ -293,11 +308,28 @@
     </footer>
 
     <!-- Popup/modal potwierdzający wysłanie -->
-    <div id="confirmationModal" class="modal">
+    <div id="confirmationModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="successTitle">
     <div class="modal-content">
-        <span id="closeModal" class="close-button">&times;</span>
-        <h2>Dziękujemy za kontakt!</h2>
+        <span id="closeModal" class="close-button" role="button" aria-label="Zamknij">&times;</span>
+        <div class="modal-icon success-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h2 id="successTitle">Dziękujemy za kontakt!</h2>
         <p>Skontaktujemy się z Tobą w ciągu 24 godzin.</p>
+        <button type="button" class="modal-close-btn" data-close-modal="confirmationModal">Zamknij</button>
+    </div>
+    </div>
+
+    <!-- Popup/modal błędu -->
+    <div id="errorModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="errorTitle">
+    <div class="modal-content">
+        <span class="close-button" role="button" aria-label="Zamknij" data-close-modal="errorModal">&times;</span>
+        <div class="modal-icon error-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+        </div>
+        <h2 id="errorTitle">Ups, coś poszło nie tak</h2>
+        <p id="errorMessage">Nie udało się wysłać formularza. Spróbuj ponownie lub zadzwoń: <a href="tel:+48537043997">537 043 997</a>.</p>
+        <button type="button" class="modal-close-btn" data-close-modal="errorModal">Zamknij</button>
     </div>
     </div>
 
@@ -371,53 +403,141 @@
             });
         })();
 
-        // Form submission handler
-       function handleSubmit(event) {
-    event.preventDefault();
-    const form = event.target;
-    const formData = new FormData(form);
+        // ===== Obsługa formularza kontaktowego =====
+        const ERROR_MESSAGES = {
+            name: 'Podaj imię i nazwisko (min. 2 znaki).',
+            email: 'Podaj poprawny adres email.',
+            phone: 'Podaj poprawny numer telefonu (np. 537 043 997).',
+            message: 'Napisz wiadomość (min. 10 znaków).',
+            rodo: 'Zgoda na przetwarzanie danych jest wymagana.'
+        };
 
-    fetch('sendmail.php', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.text())
-    .then(data => {
-        if (data.trim() === "success") {
-            const modal = document.getElementById('confirmationModal');
-            modal.style.display = 'flex';
-
-            form.reset();
-
-            const closeBtn = document.getElementById('closeModal');
-
-            // ustaw event tylko raz, np. tak:
-            if (!closeBtn.hasAttribute('data-listener')) {
-                closeBtn.addEventListener('click', () => {
-                    modal.style.display = 'none';
-                });
-                closeBtn.setAttribute('data-listener', 'true');
-            }
-
-            // Zamknij modal po kliknięciu poza modal-content - też ustaw event jeden raz
-            if (!modal.hasAttribute('data-listener')) {
-                modal.addEventListener('click', (e) => {
-                    if (e.target === modal) {
-                        modal.style.display = 'none';
-                    }
-                });
-                modal.setAttribute('data-listener', 'true');
-            }
-        } else {
-            alert("Wystąpił błąd podczas wysyłania formularza. Spróbuj ponownie.");
-            console.error('Server error:', data);
+        function showFieldError(field, message) {
+            const group = field.closest('.form-group');
+            const errorEl = group.querySelector('.field-error');
+            field.classList.add('invalid');
+            if (errorEl) errorEl.textContent = message;
         }
-    })
-    .catch(error => {
-        alert("Wystąpił błąd podczas wysyłania formularza. Spróbuj ponownie.");
-        console.error('Error:', error);
-    });
-}
+
+        function clearFieldError(field) {
+            const group = field.closest('.form-group');
+            const errorEl = group.querySelector('.field-error');
+            field.classList.remove('invalid');
+            if (errorEl) errorEl.textContent = '';
+        }
+
+        function validateField(field) {
+            const value = (field.type === 'checkbox') ? field.checked : field.value.trim();
+            if (field.hasAttribute('required')) {
+                if (field.type === 'checkbox' && !field.checked) return false;
+                if (field.type !== 'checkbox' && !value) return false;
+            }
+            if (field.type === 'email' && value) {
+                return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value);
+            }
+            if (field.type === 'tel' && value) {
+                return /^[+]?[0-9\s\-()]{7,20}$/.test(value);
+            }
+            if (field.type !== 'checkbox') {
+                const min = field.getAttribute('minlength');
+                const max = field.getAttribute('maxlength');
+                if (min && value.length < parseInt(min, 10)) return false;
+                if (max && value.length > parseInt(max, 10)) return false;
+            }
+            return true;
+        }
+
+        function openModal(id) {
+            const modal = document.getElementById(id);
+            if (!modal) return;
+            modal.style.display = 'flex';
+            const btn = modal.querySelector('.modal-close-btn');
+            if (btn) btn.focus();
+        }
+
+        function closeModal(modal) {
+            modal.style.display = 'none';
+        }
+
+        // Zamknięcie modali: X, przycisk "Zamknij", klik w tło, Escape
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal || e.target.closest('[data-close-modal]')) {
+                    closeModal(modal);
+                }
+            });
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal').forEach(m => { if (m.style.display === 'flex') closeModal(m); });
+            }
+        });
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+
+            // Honeypot — ciche odrzucenie botów
+            if (form.querySelector('#website').value !== '') {
+                return;
+            }
+
+            // Walidacja pól
+            let firstInvalid = null;
+            form.querySelectorAll('input[name], textarea[name]').forEach(field => {
+                if (field.id === 'website') return;
+                if (!validateField(field)) {
+                    showFieldError(field, ERROR_MESSAGES[field.name] || 'Pole wypełnione niepoprawnie.');
+                    if (!firstInvalid) firstInvalid = field;
+                } else {
+                    clearFieldError(field);
+                }
+            });
+            if (firstInvalid) {
+                firstInvalid.focus();
+                return;
+            }
+
+            const submitBtn = form.querySelector('.submit-btn');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Wysyłanie...';
+
+            fetch('sendmail.php', {
+                method: 'POST',
+                body: new FormData(form)
+            })
+            .then(response => response.text())
+            .then(data => {
+                const status = data.trim();
+                if (status === 'success') {
+                    form.reset();
+                    openModal('confirmationModal');
+                } else if (status === 'rate_limit') {
+                    document.getElementById('errorMessage').innerHTML =
+                        'Wysłano już kilka wiadomości w krótkim czasie. Odczekaj chwilę lub zadzwoń: <a href="tel:+48537043997">537 043 997</a>.';
+                    openModal('errorModal');
+                } else {
+                    openModal('errorModal');
+                }
+            })
+            .catch(() => {
+                openModal('errorModal');
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Wyślij wiadomość';
+            });
+        }
+
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', handleSubmit);
+        // Usuwanie błędu w trakcie poprawiania pola
+        contactForm.addEventListener('input', (e) => {
+            if (e.target.matches('input, textarea')) clearFieldError(e.target);
+        });
+        contactForm.addEventListener('change', (e) => {
+            if (e.target.type === 'checkbox') clearFieldError(e.target);
+        });
 
 
         // Intersection Observer for fade-in animations
