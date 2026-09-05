@@ -5,6 +5,8 @@
             --white: #F5FFFF;
             --light-gray: #f8f9fa;
             --text-gray: #6c757d;
+            --font-heading: 'Outfit', sans-serif;
+            --font-body: 'Source Sans 3', sans-serif;
         }
 
         * {
@@ -14,10 +16,16 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: var(--font-body);
             line-height: 1.6;
             color: var(--dark-gray);
             background-color: var(--white);
+        }
+
+        /* Typografia: nagłówki i elementy wyróżnione w Outfit */
+        h1, h2, h3, h4, h5, h6,
+        .logo, .cta-button, .stat-number {
+            font-family: var(--font-heading);
         }
 
         .container {
@@ -121,7 +129,7 @@
         }
 
         .hero-text .highlight {
-            color: var(--primary-red);
+            color: #FF6B6E;
         }
 
         .hero-text p {
@@ -247,9 +255,9 @@
         }
 
         #mechanic {
-             width: 200%;
+             width: 100%;
              max-width: 600px;
-             height: 100%;
+             height: auto;
              border-radius: 16px;
              box-shadow: 0 4px 24px rgba(0,0,0,0.08);
             margin-left: auto;
@@ -346,7 +354,7 @@
             padding: 12px;
             border: 2px solid #e9ecef;
             border-radius: 10px;
-            font-family: 'Inter', sans-serif;
+            font-family: var(--font-body);
             transition: border-color 0.3s ease;
         }
 
@@ -370,7 +378,7 @@
             font-weight: 600;
             cursor: pointer;
             transition: background 0.3s ease;
-            font-family: 'Inter', sans-serif;
+            font-family: var(--font-heading);
         }
 
         .submit-btn:hover {
@@ -412,7 +420,7 @@
             font-size: 1.2rem;
             font-weight: 600;
             margin-bottom: 1rem;
-            color: var(--secondary-red);
+            color: #FF8A8C;
         }
 
         .footer-section p,
@@ -525,7 +533,7 @@
     width: 90%;
     text-align: center;
     color: var(--dark-gray);
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-body);
 }
 
 /* Zamknij przycisk (X) */
