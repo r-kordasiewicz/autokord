@@ -138,6 +138,19 @@
             opacity: 0.9;
         }
 
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
         .cta-button {
             display: inline-block;
             background: var(--primary-red);
@@ -154,6 +167,32 @@
             background: transparent;
             color: var(--primary-red);
             border-color: var(--secondary-red);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .cta-button.secondary:hover {
+            background: var(--white);
+            color: var(--primary-red);
+            border-color: var(--white);
+        }
+
+        .phone-icon {
+            margin-right: 0.5rem;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
         }
 
         .hero-image {
@@ -173,7 +212,33 @@
         /* Services Section */
         .services {
             padding: 80px 0;
-            background: var(--light-gray);
+            background: #f1f3f5;
+        }
+
+        .section-label {
+            display: inline-block;
+            background: var(--primary-red);
+            color: var(--white);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-description {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            text-align: center;
         }
 
         .section-title {
@@ -193,28 +258,37 @@
         .service-card {
             background: var(--white);
             padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 14px;
+            border: 1px solid #e9ecef;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
 
         .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(161,10,13,0.15);
+            transform: translateY(-6px);
+            box-shadow: 0 16px 34px rgba(161,10,13,0.16);
+            border-color: rgba(208,29,32,0.35);
         }
 
         .service-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--light-gray);
-            border-radius: 50%;
+            width: 64px;
+            height: 64px;
+            background: #fdeced;
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
+            color: var(--primary-red);
+            transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            background: var(--primary-red);
             color: var(--white);
-            border: dashed 2px var(--dark-gray);
-            font-size: 1.5rem;
+            transform: translateY(-2px);
         }
 
         .service-card h3 {
@@ -227,6 +301,23 @@
         .service-card p {
             color: var(--text-gray);
             line-height: 1.6;
+        }
+
+        .service-card .service-link {
+            margin-top: auto;
+            padding-top: 1rem;
+        }
+
+        .service-link {
+            display: inline-block;
+            color: var(--primary-red);
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .service-link:hover {
+            color: var(--secondary-red);
         }
 
         /* About Section */
@@ -266,6 +357,26 @@
             align-self: center;
         }
 
+        .about-image {
+            position: relative;
+        }
+
+        .about-badge {
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-red);
+            color: var(--white);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            box-shadow: 0 4px 12px rgba(208, 29, 32, 0.3);
+            white-space: nowrap;
+        }
+
 
         .stats {
             display: grid;
@@ -291,6 +402,63 @@
         .stat-label {
             color: var(--text-gray);
             font-size: 0.9rem;
+        }
+
+        /* Hours Section */
+        .hours {
+            padding: 80px 0;
+            background: #f1f3f5;
+        }
+
+        .hours-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .hours-card {
+            background: var(--white);
+            border: 1px solid #e9ecef;
+            border-radius: 14px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hours-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 34px rgba(161,10,13,0.16);
+        }
+
+        .hours-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--dark-gray);
+            margin-bottom: 0.75rem;
+        }
+
+        .hours-time {
+            display: block;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-red);
+            margin-bottom: 0.5rem;
+            font-family: var(--font-heading);
+        }
+
+        .hours-status {
+            display: inline-block;
+            background: #e8f5ee;
+            color: #1a7f48;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
         }
 
         /* Contact Section */
@@ -466,6 +634,10 @@
             .hero-content {
                 grid-template-columns: 1fr;
                 text-align: center;
+            }
+
+            .cta-group {
+                justify-content: center;
             }
 
             .hero-text h1 {
