@@ -5,6 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AutoKord - Mechanik Samochodowy Pszczyna | Profesjonalne Usługi Motoryzacyjne</title>
     <meta name="description" content="AutoKord Pszczyna - profesjonalny warsztat samochodowy. Naprawy mechaniczne, elektryka, klimatyzacja, przeglądy. Doświadczenie i najwyższa jakość usług w Pszczynie i okolicach.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AutoRepair",
+      "name": "Autokord Krzysztof Kordasiewicz",
+      "url": "https://autokord.pl/",
+      "image": "https://autokord.pl/img/autokord-logo.svg",
+      "logo": "https://autokord.pl/img/autokord-logo.svg",
+      "telephone": "+48537043997",
+      "email": "kontakt@autokord.pl",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "ul. Zofii Nałkowskiej 17",
+        "addressLocality": "Pszczyna",
+        "postalCode": "43-200",
+        "addressRegion": "Śląskie",
+        "addressCountry": "PL"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 49.9748809,
+        "longitude": 18.9569074
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "08:00",
+          "closes": "17:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "08:00",
+          "closes": "14:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Sunday",
+          "opens": "09:00",
+          "closes": "14:00"
+        }
+      ]
+    }
+    </script>
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="AutoKord">
+    <meta property="og:title" content="AutoKord - Mechanik Samochodowy Pszczyna">
+    <meta property="og:description" content="Profesjonalny warsztat samochodowy w Pszczynie. Naprawy mechaniczne, diagnostyka komputerowa, klimatyzacja, przeglądy.">
+    <meta property="og:url" content="https://autokord.pl/">
+    <meta property="og:image" content="https://autokord.pl/img/autokord-mechanik.webp">
+    <meta property="og:locale" content="pl_PL">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://autokord.pl/">
     
     <!-- Google Fonts - Outfit (modern & distinctive) + Source Sans Pro -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,7 +90,7 @@
                 <li><a href="blog.html" class="nav-link">Blog</a></li>
                 <li><a href="#contact" class="nav-link">Kontakt</a></li>
             </ul>
-            <div class="mobile-menu" onclick="toggleMobileMenu()">
+            <div class="mobile-menu" role="button" tabindex="0" aria-label="Otwórz menu" aria-expanded="false" onclick="toggleMobileMenu()">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -337,7 +392,23 @@
         // Mobile menu toggle
         function toggleMobileMenu() {
             const navLinks = document.querySelector('.nav-links');
-            navLinks.classList.toggle('active');
+            const menu = document.querySelector('.mobile-menu');
+            const isOpen = navLinks.classList.toggle('active');
+            if (menu) {
+                menu.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                menu.setAttribute('aria-label', isOpen ? 'Zamknij menu' : 'Otwórz menu');
+            }
+        }
+
+        // Obsługa klawiatury dla menu mobilnego (Enter/Spacja)
+        const mobileMenuEl = document.querySelector('.mobile-menu');
+        if (mobileMenuEl) {
+            mobileMenuEl.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggleMobileMenu();
+                }
+            });
         }
 
         // Smooth scrolling for navigation links

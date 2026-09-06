@@ -1,3 +1,15 @@
+        /* Widoczne stany focus (dostępność, nawigacja klawiaturą) */
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        textarea:focus-visible,
+        .mobile-menu:focus-visible,
+        [role="button"]:focus-visible {
+            outline: 3px solid var(--primary-red);
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+
 :root {
             --primary-red: #D01D20;
             --secondary-red: #A10A0D;
