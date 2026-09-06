@@ -7,9 +7,17 @@
     <!-- Strona główna -->
     <url>
         <loc>https://autokord.pl/</loc>
-        <lastmod>2026-02-03</lastmod>
+        <lastmod>2026-09-05</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
+    </url>
+
+    <!-- Polityka prywatności -->
+    <url>
+        <loc>https://autokord.pl/polityka-prywatnosci.html</loc>
+        <lastmod>2026-09-05</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
     </url>
     
     <!-- Strona blogu -->
